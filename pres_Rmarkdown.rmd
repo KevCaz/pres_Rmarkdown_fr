@@ -55,11 +55,9 @@ plotImage <- function(obj=NULL,file=NULL, boxcol=1, ...){
 
 
 
-Écrire un article scientifique | ou le chronophage formatage
-=============================================================
+# Écrire un article scientifique | ou le chronophage formatage
 
-Notre pain quasi quotidien
---------------------------
+## Notre pain quasi quotidien
 
 - Organisation de la science moderne
 
@@ -83,9 +81,10 @@ plotImage(file="./img/wordlatex.png")
 Word vs Latex
 -------------
 
-- "We believe that the use of LaTeX under these circumstances is highly problematic and that researchers should reflect on the criteria that drive their preferences to use LaTeX over Microsoft Word for text that does not require significant mathematical representations."
+> "We believe that the use of LaTeX under these circumstances is highly problematic and that researchers should reflect on the criteria that drive their preferences to use LaTeX over Microsoft Word for text that does not require significant mathematical representations."
 
-- "A striking result of our study is that LaTeX users are highly satisfied with their system despite reduced usability and productivity."
+
+> "A striking result of our study is that LaTeX users are highly satisfied with their system despite reduced usability and productivity."
 
 
 Word vs Latex
@@ -129,28 +128,29 @@ Markdown et Pandoc, un nouveau paradigme ?
 
 - Pour faire simple :
 
-    - Markdown : un latex light
+    - Markdown : un latex light;
 
-    - [Pandoc](http://pandoc.org) : un convertisseur de document très puissant
-
-
+    - [Pandoc](http://pandoc.org) : un convertisseur de document universel (d'où *pan-doc*) très puissant.
 
 
 
-Markdown et R Markdown
-======================
 
 
-R Markdown nn bref
-------------------
 
-- R Markdown = Pandoc Markdown + knitr + YAML + des templates solides
 
-- Tout ça pour produire, grâce à Pandoc :
-    - 4 sortes de documents : html, pdf, md, docx
-    - 3 types de présentation : ioslides, slidy et beamer
 
-- Documents et présentation avec du code et des figures R
+# Markdown et R Markdown
+
+## R Markdown en bref
+
+- R Markdown = R + Markdown + Pandoc + knitr + YAML + des templates solides
+
+- Pour produire via Pandoc :
+    - des documents `docx`, `pdf`, `tex`, `html`, `md`;
+    - des présentations: ioslides, slidy, beamer, revealjs;
+    - et même des [sites internet](http://rmarkdown.rstudio.com/rmarkdown_websites.html)
+
+- intégration de code R et de figures faite avec R
 
 - Données $\rightarrow$ analyses $\rightarrow$ figures $\rightarrow$ manuscrit
 
@@ -158,7 +158,7 @@ R Markdown nn bref
 Markdown, Ok je vois un peu
 ---------------------------
 
-- [Markdown](http://daringfireball.net/projects/markdown/), première version 2004
+- [Markdown](http://daringfireball.net/projects/markdown/), première apparition en 2004 (parser Perl)
 
 - Depuis, plusieurs variantes : kramdown, Multimarkdown, Pandoc markdown, ...
 
@@ -229,12 +229,12 @@ Pour obtenir nos fichiers, plusieurs étapes :
 5. La commande est ensuite exécutée
 
 
-La fonction *render*
+La fonction *render()*
 --------------------
 
-- render("path/myfile.rmd")
+- `render("path/myfile.rmd")`
 
-- render("path/myfile.rmd","all")
+- `render("path/myfile.rmd", "all")`
 
 - ou quelques clics sur RStudio
 
@@ -295,12 +295,12 @@ for (i in 1:6) kcircle(1,c(cos(i*pi/3),sin(i*pi/3)), col="#0000AA88")
 Ma rosace     
 ---------
 
-```{r, fig.cap="Ma rosace", fig.height=6, fig.width=6, echo=FALSE}
+```{r, fig.height=5, fig.width=5, echo=FALSE}
 kcircle <- function(rad=1,centre=c(0,0),from=0,to=2*pi,dt=0.001,...){
     pt <- seq(from, to, dt)
     polygon(centre[1]+rad*cos(pt),centre[2]+rad*sin(pt),...)
 }
-plot(c(-1.5,1.5), c(-1.5,1.5), asp=1, type="n", ann=FALSE,
+plot(c(-2,2), c(-2,2), asp=1, type="n", ann=FALSE,
     axes=FALSE, xaxs="i", yaxs="i")
 kcircle(col="#AA000088")
 for (i in 1:6) kcircle(1,c(cos(i*pi/3),sin(i*pi/3)), col="#0000AA88")
